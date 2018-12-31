@@ -62,10 +62,11 @@ export class InfoComponent implements OnInit {
               bebida.qtde = 0;
             }
   
-  
             if(bebida.pontuacao == undefined) {
               bebida.pontuacao = 0;
             }
+
+            bebida.url_image = "/assets/images/" + bebida.url_image;
           }
   
   
@@ -83,6 +84,8 @@ export class InfoComponent implements OnInit {
     .subscribe(res => {
       alert("Bebida adicionada com sucesso!");
       this.init();
+    }, err=> {
+      alert("Você está tentando trapacear, isso não vale!")
     });
   }
 

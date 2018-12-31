@@ -30,13 +30,13 @@
                 <tbody>
                     <tr *ngFor="let bebida of bebidas">
                         <td class="text-center"> 
-                            <img (click)="adicionarBebida(bebida.nome_bebida)" src="/assets/images/add-beer.png" width="30" height="30" class="d-inline-block align-top img-title" alt="">
+                            <img src="{{bebida.url_image}}" width="30" height="50" class="d-inline-block align-top img-title" alt="">
                         </td>
                         <td class="text-center">{{bebida.nome_bebida}}</td>
                         <td class="text-center">{{bebida.qtde}}</td>
                         <td class="text-center">{{bebida.pontuacao}}</td>
                         <td class="text-center"> 
-                        <img (click)="adicionarBebida(bebida.nome_bebida)" src="/assets/images/add-beer.png" width="30" height="30" class="d-inline-block align-top img-title" alt="">
+                            <input (click)="adicionarBebida(bebida.nome_bebida)" type="button" class="btn btn-dark" value="UP"/>
                         </td>
                     </tr>
                 </tbody>
