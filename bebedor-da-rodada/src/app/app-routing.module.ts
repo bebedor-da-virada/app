@@ -7,7 +7,7 @@ import { RankingComponent } from '../pages/ranking/ranking.component';
 const routes: Routes = [
   { path: 'info', component: InfoComponent },
   { path: 'ranking', component: RankingComponent },
-  // { path: '', component: HomeComponent }
+  { path: '', component: InfoComponent }
 ];
 
 @NgModule({
