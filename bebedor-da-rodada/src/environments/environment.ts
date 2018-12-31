@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://loggibox.herokuapp.com'
+  apiUrl: 'https://bebedor-virada.herokuapp.com'
 };
 
 /*

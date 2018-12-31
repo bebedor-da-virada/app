@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { NgbModal } from '../../node_modules/@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { LOCAL_STORAGE, WebStorageService } from 'angular-webstorage-service';
 import { UserService } from '../provider/user.service';
@@ -19,10 +19,17 @@ export class AppComponent implements OnInit {
     @Inject(LOCAL_STORAGE) public storage: WebStorageService,
     private modalService: NgbModal,
     private userService: UserService,
-  ) { }
+  ) {
+    this.name = "";
+   }
 
   public ngOnInit() {
+    this.name = "";
+
     this.name = this.getFromLocal("name");
+    if(this.name == undefined) {
+      this.name = new String;
+    }
 
     if (this.name == "" || this.name == undefined) {
       let btn = document.getElementById("openContent");
@@ -41,7 +48,12 @@ export class AppComponent implements OnInit {
     let close = document.getElementById("close");
     close.click();
 
-    
+    this.userService.addUser(this.name)
+    .subscribe( res => {
+      alert("Usuário inserido com sucesso!");
+    })
+
+    window.location.href = "/";
 
   }
 

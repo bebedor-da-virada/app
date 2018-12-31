@@ -10,28 +10,18 @@
                             <h2>Posição</h2>
                         </th>
                         <th>
-                            <h2>Pontuação</h2>
+                            <h4>Nome</h4>
                         </th>
                         <th>
-                            <h4>Nome</h4>
+                            <h2>Pontuação</h2>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr *ngFor="let usuario of ranking">
                         <td>1</td>
-                        <td>200</td>
-                        <td>Jairo Maninho</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>200</td>
-                        <td>Jairo Maninho</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>200</td>
-                        <td>Jairo Maninho</td>
+                        <td>{{usuario.nome_usuario}}</td>
+                        <td>{{usuario.pontuacao}}</td>
                     </tr>
                 </tbody>
             </table>

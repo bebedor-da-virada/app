@@ -7,9 +7,9 @@ import { InfoComponent } from '../pages/info/info.component';
 import { RankingComponent } from '../pages/ranking/ranking.component';
 
 import { NgbModalModule, NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClientModule } from '../../node_modules/@angular/common/http';
-import { FormsModule } from '../../node_modules/@angular/forms';
-import { StorageServiceModule } from '../../node_modules/angular-webstorage-service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { StorageServiceModule } from 'angular-webstorage-service';
 
 @NgModule({
   declarations: [

@@ -2,25 +2,22 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { Observable } from 'rxjs';
+import { BebidaUsuario } from '../model/bebida_usuario';
+import { Bebida } from '../model/bebida';
+import { Ranking } from '../model/ranking';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class RankingService {
 
   constructor(public http: HttpClient) { }
 
   private headers = new HttpHeaders().set('Content-Type', 'application/json');
-  private usuario = environment.apiUrl + '/usuario';
+  private bebida = environment.apiUrl + '/rank_geral';
 
-  addUser(name: String): Observable<Object> {
 
-    let user = {
-      "nome_usuario": name
-    }
-
-    return this.http.post<Object>(this.usuario, user, {
-      headers: this.headers
-    });
+  getRanking(): Observable<Array<Ranking>> {
+    return this.http.get<Array<Ranking>>(this.bebida) 
   }
 }

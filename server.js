@@ -11,7 +11,7 @@ app.use(bodyParser.json())
 
 
 //serve static file (index.html, images, css)
-app.use(express.static(__dirname + '/loggibox-cd/dist/loggibox-cd/'));
+app.use(express.static(__dirname + '/bebedor-da-rodada/dist/loggibox-cd/'));
 
 
 
