@@ -1,78 +1,99 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-  <a class="navbar-brand title" href="#">
-    <!-- <img src="/assets/images/logo.png" width="30" height="30" class="d-inline-block align-top img-title" alt=""> -->
-    Bebedor da Virada
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-    aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" routerLink="/info">Info</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" routerLink="/ranking">Ranking</a>
-      </li>
-    </ul>
-  </div>
+    <a class="navbar-brand title" href="#">
+        Bebedor da Virada
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" routerLinkActive="active" routerLink="/info">Info</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLinkActive="active" routerLink="/ranking">Ranking</a>
+            </li>
+        </ul>
+    </div>
 </nav>
 <div class="row home">
-  <div class="col-12">
-    <div class="container-fluid">
-      <div class="row ">
-        <div class="col-12">
-          <br/>
-          <div class="row">
-            <div class="col-12 text-center">
-              <h3>Nome: {{name}}</h3>
-            </div>
-          </div>
+    <div class="col-12">
+        <div class="container-fluid">
+            <div class="row ">
+                <div class="col-12">
+                    <br/>
 
-          <div class="row">
-              <div class="col-12 text-right">
-                  <h1 class="display-4">
-                      <a (click)="openLg(content)">
-                          <i class="fas fa-plus pointer"></i>
-                      </a>
-                  </h1>
-              </div>
-          </div>
-        
-          <ng-template #content let-modal>
-              <div class="modal-header">
-                  <h4 class="modal-title">Cadastro de usuário</h4>
-                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                      <span aria-hidden="true">&times;</span>
-                  </button>
-              </div>
-              <div class="modal-body">
-                  <div class="row gap-top5">
-                      <div class="col-2 gap-top5 text-right">
-                          <h4>
-                              Nome
-                          </h4>
-                      </div>
-                      <div class="col-10">
-                          <input type="text" class="form-control" [(ngModel)]="name" />
-                      </div>
-                  </div>
-                  <br/>
-                  <div class="row gap-top5">
-                      <div class="col-6 offset-6">
-                          <input type="button" class="btn btn-primary form-control button-accent" (click)="insertUser()" value="ADICIONAR" />
-                      </div>
-                  </div>
-              </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
-              </div>
-          </ng-template>
-          <router-outlet></router-outlet>
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <img src="/assets/images/bebedor-da-virada.png" width="50" height="50" class="d-inline-block align-top img-title" alt="">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <h3>{{name}}</h3>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 text-right">
+                            <h1 class="display-4">
+                                <a id="openContent" (click)="openLg(content)">
+                                    <!-- <i class="fas fa-plus pointer"></i> -->
+                                </a>
+                            </h1>
+                        </div>
+                    </div>
+
+                    <ng-template #content let-modal>
+                        <div class="modal-header">
+                            <h4 class="modal-title">Cadastro de usuário</h4>
+                            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row gap-top5">
+                                <div class="col-2 gap-top5 text-right">
+                                    <h4>
+                                        Nome
+                                    </h4>
+                                </div>
+                                <div class="col-10">
+                                    <input type="text" class="form-control" [(ngModel)]="name" />
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="row gap-top5">
+                                <div class="col-6 offset-6">
+                                    <input type="button" class="btn btn-primary form-control button-accent" (click)="insertUser()" value="ADICIONAR" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light" id="close" (click)="modal.close('Close click')">Close</button>
+                        </div>
+                    </ng-template>
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+          
         </div>
-      </div>
     </div>
-  </div>
+
+    
 </div>
+
+<!-- Begin page content -->
+<main role="main" class="container">
+    <h6 class="mt-5">by <b class="catossihub">catossihub</b></h6>
+    <p class="lead">Um texto legal</p>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <span class="text-muted">Thanks.</span>
+    </div>
+  </footer>
