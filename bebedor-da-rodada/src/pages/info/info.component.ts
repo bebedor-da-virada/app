@@ -13,7 +13,7 @@ import { Bebida } from '../../model/bebida';
 })
 export class InfoComponent implements OnInit {
 
-  name:String;
+  name: String;
   bebidaUsuarios: BebidaUsuario;
   bebidas: Bebida[];
   pontuacao: String;
@@ -34,59 +34,56 @@ export class InfoComponent implements OnInit {
     this.bebidaUsuarios = new BebidaUsuario();
     this.name = this.getFromLocal("name");
 
-    if( this.name  != undefined) {
+    if (this.name != undefined) {
       this.bebidaUsuarioService.getBebidaUsuario(this.name)
-      .subscribe(res => {
-        this.bebidaUsuarios = res;
-  
-        this.pontuacao = this.bebidaUsuarios.pontuacao;
-  
-        this.bebidaService.getBebidas()
         .subscribe(res => {
-          this.bebidas = res;
-          
-          console.log(this.bebidas)
-          console.log(this.bebidaUsuarios)
-  
-          for(let bebida of this.bebidas) {
-            for(let bebidaUsuario of this.bebidaUsuarios.bebidas) {
-              if(bebida.nome_bebida == bebidaUsuario.nome_bebida) {
-                bebida.qtde = bebidaUsuario.qtde;
-                bebida.pontuacao = bebidaUsuario.pontuacao;
-              }
-            }
-          }
-  
-          for(let bebida of this.bebidas) {
-            if(bebida.qtde == undefined) {
-              bebida.qtde = 0;
-            }
-  
-            if(bebida.pontuacao == undefined) {
-              bebida.pontuacao = 0;
-            }
+          this.bebidaUsuarios = res;
 
-            bebida.url_image = "/assets/images/" + bebida.url_image;
-          }
-  
-  
-  
-        })
-  
-  
-      });
+          this.pontuacao = this.bebidaUsuarios.pontuacao;
+
+          this.bebidaService.getBebidas()
+            .subscribe(res => {
+              this.bebidas = res;
+
+              for (let bebida of this.bebidas) {
+                for (let bebidaUsuario of this.bebidaUsuarios.bebidas) {
+                  if (bebida.nome_bebida == bebidaUsuario.nome_bebida) {
+                    bebida.qtde = bebidaUsuario.qtde;
+                    bebida.pontuacao = bebidaUsuario.pontuacao;
+                  }
+                }
+              }
+
+              for (let bebida of this.bebidas) {
+                if (bebida.qtde == undefined) {
+                  bebida.qtde = 0;
+                }
+
+                if (bebida.pontuacao == undefined) {
+                  bebida.pontuacao = 0;
+                }
+
+                bebida.url_image = "/assets/images/" + bebida.url_image;
+              }
+
+
+
+            })
+
+
+        });
     }
   }
 
-  public adicionarBebida(nomeBebida:String) {
+  public adicionarBebida(nomeBebida: String) {
 
     this.bebidaUsuarioService.addBebidaUsuario(this.name, nomeBebida)
-    .subscribe(res => {
-      alert("Bebida adicionada com sucesso!");
-      this.init();
-    }, err=> {
-      alert("Você está tentando trapacear, isso não vale!")
-    });
+      .subscribe(res => {
+        alert("Bebida adicionada com sucesso!");
+        this.init();
+      }, err => {
+        alert("Você está tentando trapacear, isso não vale!")
+      });
   }
 
   public getFromLocal(key): string {

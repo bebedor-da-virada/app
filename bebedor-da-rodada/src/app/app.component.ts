@@ -1,9 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-
 import { LOCAL_STORAGE, WebStorageService } from 'angular-webstorage-service';
 import { UserService } from '../provider/user.service';
-
 
 @Component({
   selector: 'app-root',

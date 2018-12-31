@@ -1,27 +1,25 @@
 <div class="container-fluid">
-
-
-    <div class="row">
-        <div class="col-12">
+    <div class="row text-center">
+        <div class="col-12 text-center">
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>
-                            <h2>Posição</h2>
+                            <h5>Posição</h5>
                         </th>
                         <th>
-                            <h4>Nome</h4>
+                            <h5>Nome</h5>
                         </th>
                         <th>
-                            <h2>Pontuação</h2>
+                            <h5>Pontuação</h5>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let usuario of ranking">
-                        <td>1</td>
-                        <td>{{usuario.nome_usuario}}</td>
-                        <td>{{usuario.pontuacao}}</td>
+                    <tr *ngFor="let usuario of ranking; let i = index">
+                        <td class="text-center"><h2>{{(i) + 1}}. </h2></td>
+                        <td class="text-center"><h3>{{usuario.nome_usuario}}</h3></td>
+                        <td class="text-center"><h3>{{usuario.pontuacao}} pts</h3></td>
                     </tr>
                 </tbody>
             </table>
